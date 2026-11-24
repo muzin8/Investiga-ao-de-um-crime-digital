@@ -197,6 +197,41 @@ h1 span {
   cursor: default;
 }
 
+.player-form {
+  max-width: 360px;
+  display: grid;
+  justify-items: start;
+  gap: 9px;
+}
+
+.player-form label {
+  color: #c5d0dc;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.player-form input {
+  width: 100%;
+  min-height: 44px;
+  margin-bottom: 5px;
+  padding: 0 12px;
+  border: 1px solid #293950;
+  border-radius: 7px;
+  color: #e8edf5;
+  background: #111b2b;
+  font: inherit;
+  font-size: 13px;
+}
+
+.player-form input::placeholder {
+  color: #738196;
+}
+
+.player-form input:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .disclaimer {
   margin: 15px 0 0;
   color: #738196;

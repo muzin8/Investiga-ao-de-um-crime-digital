@@ -34,9 +34,21 @@
             Analise as evidências, tome decisões responsáveis e descubra o que
             aconteceu.
           </p>
-          <button class="button button-primary" id="start-button" type="button">
-            Iniciar investigação <span aria-hidden="true">→</span>
-          </button>
+          <form class="player-form" id="player-form">
+            <label for="player-name">Seu nome</label>
+            <input
+              id="player-name"
+              name="player-name"
+              type="text"
+              maxlength="40"
+              autocomplete="name"
+              placeholder="Digite seu nome"
+              required
+            />
+            <button class="button button-primary" id="start-button" type="submit">
+              Iniciar investigação <span aria-hidden="true">→</span>
+            </button>
+          </form>
           <p class="disclaimer">
             Ficção interativa · 15 etapas · Suas escolhas moldam o relatório
           </p>
@@ -113,7 +125,7 @@
 
       <section class="screen result-screen" id="result" hidden>
         <div class="result-icon" aria-hidden="true">✓</div>
-        <p class="eyebrow"><span>CASO 014</span> · INVESTIGAÇÃO CONCLUÍDA</p>
+        <p class="eyebrow"><span>CASO 014</span> · GAME OVER</p>
         <h1 id="result-title" tabindex="-1">Relatório final</h1>
         <p class="result-summary" id="result-summary"></p>
         <div class="result-score">
@@ -126,7 +138,7 @@
           <p id="case-conclusion"></p>
         </div>
         <button class="button button-primary" id="restart-button" type="button">
-          Investigar novamente <span aria-hidden="true">↻</span>
+          Jogar novamente <span aria-hidden="true">↻</span>
         </button>
         <p class="disclaimer">Lembre-se: preservar evidências e respeitar a lei é essencial.</p>
       </section>

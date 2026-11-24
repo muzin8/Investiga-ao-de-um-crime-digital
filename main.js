@@ -7,7 +7,8 @@ export function iniciarJogo() {
   const telaInicial = document.querySelector("#intro");
   const telaJogo = document.querySelector("#game");
   const telaResultado = document.querySelector("#result");
-  const botaoInicio = document.querySelector("#start-button");
+  const formularioJogador = document.querySelector("#player-form");
+  const campoNome = document.querySelector("#player-name");
   const botaoContinuar = document.querySelector("#continue-button");
   const botaoReiniciar = document.querySelector("#restart-button");
   const opcoes = document.querySelector("#choices");
@@ -21,6 +22,7 @@ export function iniciarJogo() {
   let faseAtual = 0;
   let totalPontos = 0;
   let escolhaFeita = false;
+  let nomeJogador = "";
 
   function iniciar() {
     faseAtual = 0;
@@ -127,11 +129,25 @@ export function iniciarJogo() {
         "O incidente permanece inconclusivo. Antes de qualquer conclusão, será necessário revisar os registros preservados, documentar as ações e envolver profissionais autorizados. Em uma investigação real, não altere sistemas nem compartilhe dados fora dos canais aprovados.";
     }
 
-    document.querySelector("#final-score").setAttribute("aria-label", `${totalPontos} de ${total} pontos`);
+    resumo.textContent = `${nomeJogador}, ${resumo.textContent}`;
+    document
+      .querySelector("#final-score")
+      .setAttribute("aria-label", `${totalPontos} de ${total} pontos`);
     titulo.focus();
   }
 
-  botaoInicio.addEventListener("click", iniciar);
+  formularioJogador.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    nomeJogador = campoNome.value.trim();
+    if (!nomeJogador) {
+      campoNome.setCustomValidity("Digite seu nome para iniciar.");
+      campoNome.reportValidity();
+      return;
+    }
+    campoNome.setCustomValidity("");
+    iniciar();
+  });
+  campoNome.addEventListener("input", () => campoNome.setCustomValidity(""));
   botaoReiniciar.addEventListener("click", iniciar);
   botaoContinuar.addEventListener("click", avancar);
 }
